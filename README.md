@@ -2,10 +2,10 @@
 
 ## Description
 Ce projet propose un convertisseur de fichiers vers PDF en utilisant Python. Il prend en charge les fichiers au format docx, png, et jpg.
+![Example](ressources/example.png)
 
 ## Installation
-1. Téléchargez le fichier d'installation depuis [link_to_setup.exe].
-2. Exécutez le fichier setup.exe pour ajouter l'option "2PDF" au menu contextuel de l'explorateur de fichiers.
+Exécutez le fichier setup.exe pour ajouter l'option "2PDF" au menu contextuel de l'explorateur de fichiers.
    - Le programme demandera les droits administrateurs pour modifier le registre.
    - Si vous préférez ne pas octroyer les droits, vous pouvez ajouter manuellement "2PDF" au registre Windows en exécutant le fichier "add_to_context_menu.reg".
 
