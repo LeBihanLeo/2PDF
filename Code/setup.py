@@ -37,7 +37,7 @@ with open(reg_file_path, "w") as reg_file:
 
     # Write the registry entries with the modified path
     reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF]\n")
-    reg_file.write("@=\"Convertir en PDF\"\n")
+    reg_file.write("@=\"2PDF | Convertir en PDF\"\n")
     reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n\n".format(modified_path))
 
     reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF\\command]\n")
@@ -47,6 +47,5 @@ if run_reg_file(reg_file_path):
     print(Fore.YELLOW + "'add_to_context_menu.reg' has been correctly installed")
     print(Fore.YELLOW + "You can run it manually to add 2PDF to the context menu")
 else:
-    supprimer_fichier(reg_file_path)
     print(Fore.GREEN + "2PDF has been correctly installed")
 input("Press enter to close the window...")
