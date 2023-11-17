@@ -1,8 +1,0 @@
-Windows Registry Editor Version 5.00
-
-[HKEY_CLASSES_ROOT\*\shell\2PDF]
-@="2PDF | Convertir en PDF"
-"Icon"="D:\\Projet\\Code\\2PDF\\2PDF\\2PDF\\dist\\2PDF\\2PDF.exe,0"
-
-[HKEY_CLASSES_ROOT\*\shell\2PDF\command]
-@="\"D:\\Projet\\Code\\2PDF\\2PDF\\2PDF\\dist\\2PDF\\2PDF.exe\" \"%1\""
