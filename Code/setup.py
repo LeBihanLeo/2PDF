@@ -35,13 +35,45 @@ with open(reg_file_path, "w") as reg_file:
     # Write the Windows Registry Editor Version header
     reg_file.write("Windows Registry Editor Version 5.00\n\n")
 
-    # Write the registry entries with the modified path
+    # Write the main 2PDF entry with the modified path
     reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF]\n")
-    reg_file.write("@=\"2PDF | Convertir en PDF\"\n")
+    reg_file.write("@=\"2PDF | Convert to PDF\"\n")
     reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n\n".format(modified_path))
 
+    # Write the 2PDF command entry
     reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF\\command]\n")
-    reg_file.write("@=\"\\\"{}\\\\dist\\\\2PDF\\\\2PDF.exe\\\" \\\"%1\\\"\"\n".format(modified_path))
+    reg_file.write("@=\"\\\"{}\\\\dist\\\\2PDF\\\\2PDF.exe\\\" \\\"%1\\\"\"\n\n".format(modified_path))
+
+    # Write the 2PDF_sub entry
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub]\n")
+    reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n".format(modified_path))
+    reg_file.write("\"MUIVerb\"=\"Convert PDF to ...\"\n")
+    reg_file.write("\"SubCommands\"=\"\"\n\n")
+
+    # Write the 2PDF_sub -> PDF to PNG entry
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub\\shell\\02subcmd]\n")
+    reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n".format(modified_path))
+    reg_file.write("\"MUIVerb\"=\"PDF to PNG\"\n\n")
+
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub\\shell\\02subcmd\\command]\n")
+    reg_file.write("@=\"\\\"{}\\\\dist\\\\2PDF\\\\2PDF.exe\\\" \\\"%1\\\" --pdf-to-png\"\n\n".format(modified_path))
+
+    # Write the 2PDF_sub -> PDF to JPG entry
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub\\shell\\03subcmd]\n")
+    reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n".format(modified_path))
+    reg_file.write("\"MUIVerb\"=\"PDF to JPG\"\n\n")
+
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub\\shell\\03subcmd\\command]\n")
+    reg_file.write("@=\"\\\"{}\\\\dist\\\\2PDF\\\\2PDF.exe\\\" \\\"%1\\\" --pdf-to-jpg\"\n\n".format(modified_path))
+
+    # Write the 2PDF_sub -> PDF to DOCX entry
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub\\shell\\04subcmd]\n")
+    reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n".format(modified_path))
+    reg_file.write("\"MUIVerb\"=\"PDF to DOCX\"\n\n")
+
+    reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub\\shell\\04subcmd\\command]\n")
+    reg_file.write("@=\"\\\"{}\\\\dist\\\\2PDF\\\\2PDF.exe\\\" \\\"%1\\\" --pdf-to-docx\"\n".format(modified_path))
+
 
 if run_reg_file(reg_file_path):
     print(Fore.YELLOW + "'add_to_context_menu.reg' has been correctly installed")
