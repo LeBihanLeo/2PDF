@@ -3,7 +3,7 @@
 ## Description
 Ce projet propose un convertisseur de fichiers vers PDF en utilisant Python. Il prend en charge les fichiers au format docx, png, et jpg. <br>
 ![Example](ressources/example.png) <br>
-![Example](ressources/example2.png)
+![Example](ressources/example_2.png)
 
 ## Installation
 Exécutez le fichier setup.exe pour ajouter l'option "2PDF" au menu contextuel de l'explorateur de fichiers.
