@@ -47,7 +47,7 @@ with open(reg_file_path, "w") as reg_file:
     # Write the 2PDF_sub entry
     reg_file.write("[HKEY_CLASSES_ROOT\\*\\shell\\2PDF_sub]\n")
     reg_file.write("\"Icon\"=\"{}\\\\dist\\\\2PDF\\\\2PDF.exe,0\"\n".format(modified_path))
-    reg_file.write("\"MUIVerb\"=\"Convert PDF to ...\"\n")
+    reg_file.write("\"MUIVerb\"=\"2PDF | Convert PDF to ...\"\n")
     reg_file.write("\"SubCommands\"=\"\"\n\n")
 
     # Write the 2PDF_sub -> PDF to PNG entry
